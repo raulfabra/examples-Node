@@ -1,0 +1,22 @@
+{
+  "name": "rooms-csv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "rimraf dist && tsc"
+  },
+  "keywords": [],
+  "author": "Raul",
+  "license": "ISC",
+  "description": "Ejercicios con Node y typescript",
+  "devDependencies": {
+    "@types/express": "5.0.0",
+    "rimraf": "6.0.1",
+    "ts-node": "10.9.2",
+    "typescript": "5.6.2"
+  },
+  "dependencies": {
+    "@types/node": "22.7.4"
+  }
+}
