@@ -1,9 +1,4 @@
-// Node.js program to demonstrate the
-// fs.readFileSync() method
-
 import { Room } from "./types/types";
-
-// Include fs module
 const fs = require("fs");
 
 // Calling the readFileSync() method
@@ -11,8 +6,16 @@ const fs = require("fs");
 const data = fs.readFileSync("./json/rooms.json");
 const dataJson = JSON.parse(data);
 
+// Order by price all data
 dataJson.sort((a: Room, b: Room) => a.priceNight.localeCompare(b.priceNight));
-
-fs.writeFileSync("rooms.csv", JSON.stringify(dataJson));
 // Display the file data
 console.log(dataJson);
+
+// Extract the headers of our keys object
+const headers = Object.keys(dataJson[0]).join(",");
+const rows = dataJson.map((obj: Room) => Object.values(obj).join(","));
+
+const dataCsv = [headers, ...rows].join("\n");
+
+// Write the file.csv
+fs.writeFileSync("./rooms.csv", dataCsv);
